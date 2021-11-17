@@ -4,13 +4,13 @@ var app = express();
 const mongoose=require("mongoose");
 var MongoClient=require("mongodb").MongoClient;
 const { response } = require('express');
-var url="mongodb://localhost:27017/database";
+var url="mongodb+srv://ziad:ZAheg1234@cluster0.odloe.mongodb.net/project?retryWrites=true&w=majority";
 mongoose.Promise=global.Promise;
 mongoose.connect(url,function(err,db){
   if(err) throw err;
 });
 var nameSchema=new mongoose.Schema({username:String,password:String});
-var User=mongoose.model("user",nameSchema);
+var User=mongoose.model("users",nameSchema);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.json());
@@ -61,12 +61,11 @@ app.post("/submit",function(req,res){
     }
   });
 });
-let port =process.env.PORT || 3000;
 if(process.env.PORT){
-  app.listen(port,function(){
+  app.listen(process.env.PORT,function(){
     console.log("ok");
   });
 }
 else{
-  app.listen(3000);
+  app.listen(4000);
 }
