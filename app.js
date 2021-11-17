@@ -25,7 +25,7 @@ app.get("/log",function(req,res){
 app.post("/log",function(req,res){
   var user=req.body.username;
   var pass=req.body.password;
-  var query=User.find({"username":user});
+  var query=User.find({"username":user,"password":pass});
   query.exec(function(err,result){
     if(err) throw err;
     if(result.length==0){
