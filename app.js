@@ -4,9 +4,9 @@ var path = require('path');
 var app = express();
 const session = require('express-session');
 const mongoose=require("mongoose");
-const redis = require('redis');
-const redisStore = require('connect-redis')(session);
-const client  = redis.createClient();
+// const redis = require('redis');
+// const redisStore = require('connect-redis')(session);
+// const client  = redis.createClient();
 let name;
 var url="mongodb+srv://ziad:ZAheg1234@cluster0.odloe.mongodb.net/project?retryWrites=true&w=majority";
 mongoose.Promise=global.Promise;
@@ -20,9 +20,10 @@ var User=mongoose.model("users",nameSchema);
 var schema2= new mongoose.Schema({username:String,list:Array})
 var Cart=mongoose.model("cart",schema2);
 app.set('views', path.join(__dirname, 'views'));
-
+// store: new redisStore({ host: 'localhost', port: 6379, client: client,ttl : 260}
 app.set('view engine', 'ejs');
-app.use(session({secret: 'originals', store: new redisStore({ host: 'localhost', port: 6379, client: client,ttl : 260}),saveUninitialized: false,
+app.use(session({secret: 'originals', 
+saveUninitialized: false,
 resave: false}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
