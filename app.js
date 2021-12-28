@@ -40,14 +40,14 @@ app.get("/" ,function(req,res){
 });
 app.get("/home",function(req,res){
   if(req.session.name){
-    res.render("home");
+    res.render("home",{wel:""});
   }else{
     res.render("login",{wrong:"You must login first"});
   }
 })
 app.get("/temp",function(req,res){
   if(req.session.name){
-    res.render("home");
+    res.render("home",{wel:""});
   }else{
     res.render("login",{wrong:"You must login first"});
   }
@@ -937,7 +937,7 @@ app.post("/signup",function(req,res){
       c.save();
       name=user;
       req.session.name=user;
-      res.render("home");
+      res.render("home",{wel:("Welcome "+name)});
     }else{
       res.render("registration",{wrong:"user name is already taken"});
     }
@@ -1186,7 +1186,7 @@ app.post("/",function(req,res){
     }else{
       name=user;
       req.session.name=user;
-      res.render("home");
+      res.render("home",{wel:""});
     }
   })
 })
