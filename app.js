@@ -77,7 +77,7 @@ app.post("/search",function(req,res){
     var arr=[];
     var i=0;
     for(i=0;i<result.length;i++){
-      if((result[i].name).includes(s)){
+      if((result[i].name.toLower()).includes(s.toLower())){
         arr=arr.concat([result[i].name]);
       }
     }
@@ -88,7 +88,8 @@ app.post("/search",function(req,res){
 
 });
 app.get("/add-tennis",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name
+  });
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -117,7 +118,7 @@ app.get("/add-tennis",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -126,7 +127,7 @@ app.get("/add-tennis",function(req,res){
   } 
 });
 app.get("/min-tennis",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -163,7 +164,7 @@ app.get("/min-tennis",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr3},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr3},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -172,7 +173,7 @@ app.get("/min-tennis",function(req,res){
   }
 });
 app.get("/del-tennis",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -200,7 +201,7 @@ app.get("/del-tennis",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -211,7 +212,7 @@ app.get("/del-tennis",function(req,res){
 }
 })
 app.get("/del-boxing",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -239,7 +240,7 @@ app.get("/del-boxing",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -250,7 +251,7 @@ app.get("/del-boxing",function(req,res){
 }
 })
 app.get("/del-sun",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -278,7 +279,7 @@ app.get("/del-sun",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -289,7 +290,7 @@ app.get("/del-sun",function(req,res){
 }
 })
 app.get("/del-leaves",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -317,7 +318,7 @@ app.get("/del-leaves",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -328,7 +329,7 @@ app.get("/del-leaves",function(req,res){
 }
 })
 app.get("/del-galaxy",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -356,7 +357,7 @@ app.get("/del-galaxy",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -367,7 +368,7 @@ app.get("/del-galaxy",function(req,res){
 }
 })
 app.get("/del-iphone",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -395,7 +396,7 @@ app.get("/del-iphone",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -406,7 +407,7 @@ app.get("/del-iphone",function(req,res){
 }
 })
 app.get("/min-boxing",function(req,res){
- if(req.session.name){ var query=Cart.find({username:name});
+ if(req.session.name){ var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -443,7 +444,7 @@ app.get("/min-boxing",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr3},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr3},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -453,7 +454,7 @@ app.get("/min-boxing",function(req,res){
 }
 }) 
 app.get("/min-sun",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -490,7 +491,7 @@ app.get("/min-sun",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr3},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr3},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -500,7 +501,7 @@ app.get("/min-sun",function(req,res){
 }
 });
 app.get("/min-leaves",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -537,7 +538,7 @@ app.get("/min-leaves",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr3},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr3},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -547,7 +548,7 @@ app.get("/min-leaves",function(req,res){
 }
 });
 app.get("/min-iphone",function(req,res){
- if(req.session.name) {var query=Cart.find({username:name});
+ if(req.session.name) {var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -584,7 +585,7 @@ app.get("/min-iphone",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr3},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr3},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -594,7 +595,7 @@ app.get("/min-iphone",function(req,res){
 }
 });
 app.get("/min-galaxy",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -631,7 +632,7 @@ app.get("/min-galaxy",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr3},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr3},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -641,7 +642,7 @@ app.get("/min-galaxy",function(req,res){
 }
 });
 app.get("/add-boxing",function(req,res){
- if(req.session.name) {var query=Cart.find({username:name});
+ if(req.session.name) {var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -671,7 +672,7 @@ app.get("/add-boxing",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -681,7 +682,7 @@ app.get("/add-boxing",function(req,res){
 }
 });
 app.get("/add-galaxy",function(req,res){
- if(req.session.name){ var query=Cart.find({username:name});
+ if(req.session.name){ var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -711,7 +712,7 @@ app.get("/add-galaxy",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -721,7 +722,7 @@ app.get("/add-galaxy",function(req,res){
 }
 });
 app.get("/add-iphone",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -751,7 +752,7 @@ app.get("/add-iphone",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -761,7 +762,7 @@ app.get("/add-iphone",function(req,res){
 }
 });
 app.get("/add-sun",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -791,7 +792,7 @@ app.get("/add-sun",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -801,7 +802,7 @@ app.get("/add-sun",function(req,res){
 }
 });
 app.get("/add-leaves",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     var list=result[0].list;
     var i=0;
@@ -831,7 +832,7 @@ app.get("/add-leaves",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:list},{username:name,list:arr},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:list},{username:req.session.name,list:arr},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("cart1");
@@ -944,7 +945,7 @@ app.post("/signup",function(req,res){
 
 
 app.get("/cart",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     if(err) throw err;
     var list=result[0].list;
@@ -973,7 +974,7 @@ app.get("/cart",function(req,res){
   
 });
 app.get("/phone-galaxy",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     if(err) throw err;
     var i=0;
@@ -997,7 +998,7 @@ app.get("/phone-galaxy",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:arr},{username:name,list:arr2},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:arr},{username:req.session.name,list:arr2},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("temp",{done:"galaxy"});
@@ -1006,7 +1007,7 @@ app.get("/phone-galaxy",function(req,res){
   }
 });
 app.get("/phone-iphone",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     if(err) throw err;
     var i=0;
@@ -1030,7 +1031,7 @@ app.get("/phone-iphone",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:arr},{username:name,list:arr2},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:arr},{username:req.session.name,list:arr2},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("temp",{done:"iphone"});
@@ -1039,7 +1040,7 @@ app.get("/phone-iphone",function(req,res){
   }
 });
 app.get("/book-leaves",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     if(err) throw err;
     var i=0;
@@ -1063,7 +1064,7 @@ app.get("/book-leaves",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:arr},{username:name,list:arr2},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:arr},{username:req.session.name,list:arr2},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("temp",{done:"leaves"});
@@ -1073,7 +1074,7 @@ app.get("/book-leaves",function(req,res){
   }
 });
 app.get("/book-sun",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     if(err) throw err;
     var i=0;
@@ -1097,7 +1098,7 @@ app.get("/book-sun",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:arr},{username:name,list:arr2},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:arr},{username:req.session.name,list:arr2},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("temp",{done:"sun"});
@@ -1106,7 +1107,7 @@ app.get("/book-sun",function(req,res){
   }
 });
 app.get("/sport-tennis",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     if(err) throw err;
     var i=0;
@@ -1130,7 +1131,7 @@ app.get("/sport-tennis",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:arr},{username:name,list:arr2},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:arr},{username:req.session.name,list:arr2},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("temp",{done:"tennis"});
@@ -1139,7 +1140,7 @@ app.get("/sport-tennis",function(req,res){
   }
 });
 app.get("/sport-boxing",function(req,res){
-  if(req.session.name){var query=Cart.find({username:name});
+  if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
     if(err) throw err;
     var i=0;
@@ -1163,7 +1164,7 @@ app.get("/sport-boxing",function(req,res){
         }
       }
     }
-    Cart.findOneAndUpdate({username:name,list:arr},{username:name,list:arr2},{upsert:true},function(err,doc){
+    Cart.findOneAndUpdate({username:req.session.name,list:arr},{username:req.session.name,list:arr2},{upsert:true},function(err,doc){
       if(err) throw err;
     });
     res.render("temp",{done:"boxing"});
