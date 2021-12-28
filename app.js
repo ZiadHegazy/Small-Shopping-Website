@@ -80,7 +80,7 @@ app.post("/search",function(req,res){
     var arr=[];
     var i=0;
     for(i=0;i<result.length;i++){
-      if((result[i].name.toLower()).includes(s.toLower())){
+      if((result[i].name.toLowerCase()).includes(s.toLowerCase())){
         arr=arr.concat([result[i].name]);
       }
     }
