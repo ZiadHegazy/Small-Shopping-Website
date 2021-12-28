@@ -83,6 +83,17 @@
         <video width="480" height="360" controls>
             <source src="/sun.mp4">
         </video>
-    </div>s
+    </div>
+    <script>
+        var button=document.getElementById("cart");
+        button.onclick=function(){ 
+            alert("item successfully added to cart");
+            window.location.href="/book-sun";
+        };
+        var done="<%=done%>"
+        if(done != ""){
+            
+        }
+    </script>
 </body>
 </html>

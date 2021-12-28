@@ -20,6 +20,9 @@
             color: white;
             -webkit-text-stroke: 0.5px black;
         }
+        #wrong{
+            color:red;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,14 +37,21 @@
         <h1>Registration</h1>
     </div>
     <div class="cont">
+        <p id="wrong" > <%=wrong%> </p>
         <form method='post' action='/register'>
             Username: <br>
             <input type="text" id="user" name="username"> <br>
             Password: <br>
             <input type="password" id="password" name="password"> <br> <br>
-            <input type="submit" id="simple_click" class="btn btn-secondary" value="Register"> <br>
+            <input type="submit" formaction="signup" id="simple_click" class="btn btn-secondary" value="Register"> <br>
         </form>
     </div>
+    <script>
+        var wrong="<%=wrong%>";
+        if(wrong !=""){
+            alert(wrong);
+        }
+    </script>
 </body>
 
 </html>

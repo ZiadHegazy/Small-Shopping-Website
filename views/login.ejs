@@ -45,5 +45,14 @@
         <br>
         <a href="registration">I dont have an account</a>
     </div>
+    <script>
+        var wrong="<%=wrong%>";
+        if(wrong!=""){
+            alert(wrong);
+            if(wrong=="You must login first"){
+                window.location.href="/";
+            }
+        }
+    </script>
 </body>
 </html>

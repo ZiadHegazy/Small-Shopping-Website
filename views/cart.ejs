@@ -4,7 +4,6 @@
     <style>
         body {
             background-image: url("background3.jpg");
-            background-repeat: no-repeat;
             background-size: 100%;
         }
 
@@ -38,5 +37,391 @@
             </form>
         </div>
     </nav>
+    <script>
+        var list="<%=list%>";
+        if(list.length>0){
+            var arr=list.split(",-,");
+        }
+        if(list.length==0){
+            var h1=document.createElement("h1");
+            var body=document.querySelector("body");
+            h1.innerHTML="you donot have any thing in the cart yet";
+            body.appendChild(h1);
+        }
+        var arr2=[];
+        var i=0;
+        for(i=0;i<arr.length;i++){
+            var temp=arr[i].split(",");
+            arr2=arr2.concat([temp]);
+        }
+        i=0;
+        for(i=0;i<arr2.length;i++){
+            var body=document.querySelector("body");
+            var div=document.createElement("div");
+            div.style.width="350px";
+            div.style.height="400";
+            var view=document.createElement("button");
+            var del=document.createElement("button");
+            var img=document.createElement("img");
+            var add=document.createElement("button");
+            var min = document.createElement("button");
+            var label=document.createElement("label");
+            if(arr2[i][1]=="tennis racket"){
+                img.src="tennis.jpg";
+                div.id="tennis";
+                label.id="tennis";
+                view.onclick=function(){
+                    window.location.href="/tennis";
+                }
+                del.onclick=function(){
+                    var div2=document.querySelectorAll("div");
+                    var k=0;
+                    for(k=0;k<div2.length;k++){
+                    if(div2[k].id=="tennis"){
+                        body.removeChild(div2[k])
+                    }
+                    }
+                    window.location.reload();
+                    window.location.href="/del-tennis";
+                }
+                add.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="tennis"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) +1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])+1+"";
+                            break;
+                        }
+                    }
+                    window.location.href="/add-tennis";
+                }
+                min.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="tennis"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) -1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])-1+"";
+                            if(l[j].innerHTML=="0"){
+                                var div2=document.querySelectorAll("div");
+                                var k=0;
+                                for(k=0;k<div2.length;k++){
+                                    if(div2[k].id=="tennis"){
+                                        body.removeChild(div2[k])
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    window.location.reload();
+
+                    window.location.href="/min-tennis";
+                }
+            }else if(arr2[i][1]=="boxing bag"){
+                img.src="boxing.jpg";
+                div.id="boxing";
+                label.id="boxing";
+                view.onclick=function(){
+                    window.location.href="/boxing";
+                }
+                del.onclick=function(){
+                    var div2=document.querySelectorAll("div");
+                    var k=0;
+                    for(k=0;k<div2.length;k++){
+                    if(div2[k].id=="boxing"){
+                        body.removeChild(div2[k])
+                    }
+                    }
+                    window.location.reload();
+                    window.location.href="/del-boxing";
+                }
+                add.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="boxing"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) +1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])+1+"";
+                            break;
+                        }
+                    }
+                    window.location.href="/add-boxing";
+                }
+                min.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="boxing"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) -1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])-1+"";
+                            if(l[j].innerHTML=="0"){
+                                var div2=document.querySelectorAll("div");
+                                var k=0;
+                                for(k=0;k<div2.length;k++){
+                                    if(div2[k].id=="boxing"){
+                                        body.removeChild(div2[k])
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    window.location.reload();
+
+                    window.location.href="/min-boxing";
+                }
+            }else if(arr2[i][1]=="galaxy s21"){
+                img.src="galaxy.jpg";
+                div.id="galaxy";
+                label.id="galaxy";
+                view.onclick=function(){
+                    window.location.href="/galaxy";
+                }
+                del.onclick=function(){
+                    var div2=document.querySelectorAll("div");
+                    var k=0;
+                    for(k=0;k<div2.length;k++){
+                    if(div2[k].id=="galaxy"){
+                        body.removeChild(div2[k])
+                    }
+                    }
+                    window.location.reload();
+                    window.location.href="/del-galaxy";
+                }
+                add.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="galaxy"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) +1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])+1+"";
+                            break;
+                        }
+                    }
+                    window.location.href="/add-galaxy";
+                }
+                min.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="galaxy"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) -1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])-1+"";
+                            if(l[j].innerHTML=="0"){
+                                var div2=document.querySelectorAll("div");
+                                var k=0;
+                                for(k=0;k<div2.length;k++){
+                                    if(div2[k].id=="galaxy"){
+                                        body.removeChild(div2[k])
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    window.location.reload();
+                    window.location.href="/min-galaxy";
+                }
+            }else if(arr2[i][1]=="iphone 13 pro"){
+                img.src="iphone.jpg";
+                div.id="iphone";
+                label.id="iphone";
+                view.onclick=function(){
+                    window.location.href="/iphone";
+                }
+                del.onclick=function(){
+                    var div2=document.querySelectorAll("div");
+                    var k=0;
+                    for(k=0;k<div2.length;k++){
+                    if(div2[k].id=="iphone"){
+                        body.removeChild(div2[k])
+                    }
+                    }
+                    window.location.reload();
+                    window.location.href="/del-iphone";
+                }
+                add.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="iphone"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) +1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])+1+"";
+                            break;
+                        }
+                    }
+                    window.location.href="/add-iphone";
+                }
+                min.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="iphone"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) -1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])-1+"";
+                            if(l[j].innerHTML=="0"){
+                                var div2=document.querySelectorAll("div");
+                                var k=0;
+                                for(k=0;k<div2.length;k++){
+                                    if(div2[k].id=="iphone"){
+                                        body.removeChild(div2[k])
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    window.location.reload();
+
+                    window.location.href="/min-iphone";
+                }
+            }else if(arr2[i][1]=="leaves of grass"){
+                img.src="leaves.jpg";
+                div.id="leaves";
+                label.id="leaves";
+                view.onclick=function(){
+                    window.location.href="/leaves";
+                }
+                del.onclick=function(){
+                    var div2=document.querySelectorAll("div");
+                    var k=0;
+                    for(k=0;k<div2.length;k++){
+                    if(div2[k].id=="leaves"){
+                        body.removeChild(div2[k])
+                    }
+                    }
+                    window.location.reload();
+                    window.location.href="/del-leaves";
+                }
+                add.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="leaves"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) +1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])+1+"";
+                            break;
+                        }
+                    }
+                    window.location.href="/add-leaves";
+                }
+                min.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="leaves"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) -1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])-1+"";
+                            if(l[j].innerHTML=="0"){
+                                var div2=document.querySelectorAll("div");
+                                var k=0;
+                                for(k=0;k<div2.length;k++){
+                                    if(div2[k].id=="leaves"){
+                                        body.removeChild(div2[k])
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    window.location.reload();
+
+                    window.location.href="/min-leaves";
+                }
+            }else if(arr2[i][1]=="the sun and her flowers"){
+                img.src="sun.jpg";
+                div.id="sun";
+                label.id="sun";
+                view.onclick=function(){
+                    window.location.href="/sun";
+                }
+                del.onclick=function(){
+                    var div2=document.querySelectorAll("div");
+                    var k=0;
+                    for(k=0;k<div2.length;k++){
+                    if(div2[k].id=="sun"){
+                        body.removeChild(div2[k])
+                    }
+                    }
+                    window.location.reload();
+                    window.location.href="/del-sun";
+                }
+                add.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="sun"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) +1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])+1+"";
+                            break;
+                        }
+                    }
+                    window.location.href="/add-sun";
+                }
+                min.onclick=function(){
+                    var l=document.querySelectorAll("label");
+                    var j=0;
+                    for(j=0;j<l.length;j++){
+                        if(l[j].id=="sun"){
+                            l[j].innerHTML=parseInt(l[j].innerHTML) -1+"";
+                            arr[i-1][2]=parseInt(arr[i-1][2])-1+"";
+                            if(l[j].innerHTML=="0"){
+                                var div2=document.querySelectorAll("div");
+                                var k=0;
+                                for(k=0;k<div2.length;k++){
+                                    if(div2[k].id=="sun"){
+                                        body.removeChild(div2[k])
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    window.location.reload();
+
+                    window.location.href="/min-sun";
+                }
+            }
+            add.innerHTML="+";
+            add.style.position="relative";
+            add.style.left="210px";
+            add.style.top="12px";
+            add.className="btn btn-secondary ml-3";
+            min.innerHTML="-";
+            label.innerHTML=arr2[i][2]
+            label.style.position="relative"
+            label.style.left="180px";
+            label.style.top="12px";
+            label.style.color="white";
+            min.style.position="relative";
+            min.style.left="235px";
+            min.style.top="12px";
+            min.className="btn btn-secondary ml-3";
+            img.style.position="relative";
+            img.style.left="25px";
+            img.style.top="0px";
+            img.style.width="300px";
+            img.style.height="300px";
+            del.innerHTML="Delete";
+            del.className="btn btn-secondary ml-3";
+            view.className="btn btn-secondary ml-3";
+            view.innerHTML="View info";
+            del.style.position="relative";
+            del.style.left="10px";
+            del.style.top="350px";
+            view.style.position="relative";
+            view.style.left="8px";
+            view.style.top="350px";
+            div.appendChild(del);
+            div.appendChild(view);
+            div.appendChild(img);
+            div.appendChild(add);
+            div.appendChild(min);
+            div.appendChild(label);
+            body.appendChild(div);
+        }
+    </script>
 </body>
 </html>

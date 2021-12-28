@@ -6,12 +6,9 @@ mongoose.Promise=global.Promise;
 mongoose.connect(url,function(err,db){
   if(err) throw err;
 });
+var schema2= new mongoose.Schema({username:String,list:Array})
+var Cart=mongoose.model("cart",schema2);
 var nameSchema=new mongoose.Schema({username:String,password:String});
 var User=mongoose.model("users",nameSchema);
-var object= new User();
-object.username="ziad";
-object.password="ZAheg1234";
-object.save(function(err,res){
-  if(err) throw err;
-})
-
+var schema3=new mongoose.Schema({type:String,name:String,img:String});
+var Item=mongoose.model("items",schema3);
