@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var app = express();
 const session = require('express-session');
+const cookieParser = require("cookie-parser");
 const mongoose=require("mongoose");
 const redis = require('redis');
 const redisStore = require('connect-redis')(session);
@@ -22,16 +23,17 @@ var Cart=mongoose.model("cart",schema2);
 app.set('views', path.join(__dirname, 'views'));
 // store: new redisStore({ host: 'localhost', port: 6379, client: client,ttl : 260}
 app.set('view engine', 'ejs');
-app.use(session({secret: 'originals', 
-saveUninitialized: false,
-//store: new redisStore({ host: 'localhost', port: 6379, client: client,ttl : 260}),
-resave: false}));
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(session({
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.locals.fun1=function(){
-  return [Cart];
-};
+app.use(cookieParser());
 app.get("/" ,function(req,res){
   
   res.render("login",{wrong:""});
