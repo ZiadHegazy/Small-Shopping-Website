@@ -24,7 +24,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(session({secret: 'originals', 
 saveUninitialized: false,
-store: new redisStore({ host: 'localhost', port: 6379, client: client,ttl : 260}),
+//store: new redisStore({ host: 'localhost', port: 6379, client: client,ttl : 260}),
 resave: false}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
