@@ -52,6 +52,7 @@ app.get("/temp",function(req,res){
     res.render("login",{wrong:"You must login first"});
   }
 })
+
 app.get("/cart1",function(req,res){
   if(req.session.name){
     res.render("cart1");
@@ -945,8 +946,41 @@ app.post("/signup",function(req,res){
 }
 });
 
+// app.get("/cart2",function(req,res){
+//   if(req.session.name){
+//     res.render("cart2")
+//   }else{
+//     res.render("login",{wrong:"You must login first"});
 
-
+//   }
+// })
+app.get("/cart2",function(req,res){
+  if(req.session.name){var query=Cart.find({username:req.session.name});
+  query.exec(function(err,result){
+    if(err) throw err;
+    var list=result[0].list;
+    var list2=[];
+    var i=0;
+    for(i=0;i<list.length;i++){
+      if(i!=list.length-1){
+        var j=0 
+        for(j=0;j<list[i].length;j++){
+          list2=list2.concat([list[i][j]]);
+        }
+        list2=list2.concat(["-"]);
+      }else{
+        var j=0 
+        for(j=0;j<list[i].length;j++){
+          list2=list2.concat([list[i][j]]);
+        }
+      }
+    }
+    
+    res.render("cart",{list:list2,first:"0"});
+  })}else{
+    res.render("login",{wrong:"You must login first"});
+  }
+})
 app.get("/cart",function(req,res){
   if(req.session.name){var query=Cart.find({username:req.session.name});
   query.exec(function(err,result){
@@ -968,8 +1002,8 @@ app.get("/cart",function(req,res){
         }
       }
     }
-    var a=require("./try");
-    res.render("cart",{list:list2});
+    
+    res.render("cart",{list:list2,first:"1"});
   })}else{
     res.render("login",{wrong:"You must login first"});
   }

@@ -54,7 +54,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body onbeforeunload="HandleBackFunctionality()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
         <a class="navbar-brand" style="color: rgb(191, 255, 161)">Leaves of Grass</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -88,10 +88,14 @@
     </div>
     <script>
          var button=document.getElementById("cart");
+         
+         
         button.onclick=function(){ 
-            alert("item successfully added to cart");
+            alert("item successfully added to cart"+" ");
+            
             window.location.href="/book-leaves";
         };
+        
         var done="<%=done%>"
         if(done != ""){
             
