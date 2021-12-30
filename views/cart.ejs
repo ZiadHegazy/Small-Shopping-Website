@@ -40,9 +40,9 @@
     <script>
         var list="<%=list%>";
         var first="<%=first%>";
-        window.onload=function(){
+        onload=function(){
             if(first=="1"){
-                window.location.href="/cart2";
+                location.href="/cart2";
             }
         }
         if(list.length>0){
@@ -77,8 +77,8 @@
                 div.id="tennis";
                 label.id="tennis";
                 view.onclick=function(){
-                    window.history.replaceState(null,'','cart');
-                    window.location.href="/tennis";
+                    history.replaceState(null,'','cart');
+                    location.href="/tennis";
                 }
                 del.onclick=function(){
                     var div2=document.querySelectorAll("div");
@@ -88,8 +88,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    window.location.reload();
-                    window.location.href="/del-tennis";
+                    
+                    location.href="/del-tennis";
                 }
                 add.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -101,10 +101,10 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    //
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/add-tennis";
+                    location.href="/add-tennis";
                 }
                 min.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -125,19 +125,19 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/min-tennis";
+                    location.href="/min-tennis";
                 }
             }else if(arr2[i][1]=="boxing bag"){
                 img.src="boxing.jpg";
                 div.id="boxing";
                 label.id="boxing";
                 view.onclick=function(){
-                    window.history.replaceState(null,'','cart');
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/boxing";
+                    location.href="/boxing";
                 }
                 del.onclick=function(){
                     var div2=document.querySelectorAll("div");
@@ -147,8 +147,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    window.location.reload();
-                    window.location.href="/del-boxing";
+                    
+                    location.href="/del-boxing";
                 }
                 add.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -160,10 +160,10 @@
                             break;
                         }
                     }
-                    //window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    //
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/add-boxing";
+                    location.href="/add-boxing";
                 }
                 min.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -184,19 +184,19 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/min-boxing";
+                    location.href="/min-boxing";
                 }
             }else if(arr2[i][1]=="galaxy s21"){
                 img.src="galaxy.jpg";
                 div.id="galaxy";
                 label.id="galaxy";
                 view.onclick=function(){
-                    window.history.replaceState(null,'','cart');
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/galaxy";
+                    location.href="/galaxy";
                 }
                 del.onclick=function(){
                     var div2=document.querySelectorAll("div");
@@ -206,8 +206,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    window.location.reload();
-                    window.location.href="/del-galaxy";
+                    
+                    location.href="/del-galaxy";
                 }
                 add.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -219,10 +219,10 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/add-galaxy";
+                    location.href="/add-galaxy";
                 }
                 min.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -243,19 +243,19 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/min-galaxy";
+                    location.href="/min-galaxy";
                 }
             }else if(arr2[i][1]=="iphone 13 pro"){
                 img.src="iphone.jpg";
                 div.id="iphone";
                 label.id="iphone";
                 view.onclick=function(){
-                    window.history.replaceState(null,'','cart');
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/iphone";
+                    location.href="/iphone";
                     
                 }
                 del.onclick=function(){
@@ -266,8 +266,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    window.location.reload();
-                    window.location.href="/del-iphone";
+                    
+                    location.href="/del-iphone";
                 }
                 add.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -279,10 +279,10 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/add-iphone";
+                    location.href="/add-iphone";
                 }
                 min.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -303,19 +303,19 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/min-iphone";
+                    location.href="/min-iphone";
                 }
             }else if(arr2[i][1]=="leaves of grass"){
                 img.src="leaves.jpg";
                 div.id="leaves";
                 label.id="leaves";
                 view.onclick=function(){
-                    window.history.replaceState(null,'','cart');
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/leaves";
+                    location.href="/leaves";
                 }
                 del.onclick=function(){
                     var div2=document.querySelectorAll("div");
@@ -325,8 +325,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    window.location.reload();
-                    window.location.href="/del-leaves";
+                    
+                    location.href="/del-leaves";
                 }
                 add.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -338,10 +338,10 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/add-leaves";
+                    location.href="/add-leaves";
                 }
                 min.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -362,19 +362,19 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/min-leaves";
+                    location.href="/min-leaves";
                 }
             }else if(arr2[i][1]=="the sun and her flowers"){
                 img.src="sun.jpg";
                 div.id="sun";
                 label.id="sun";
                 view.onclick=function(){
-                    window.history.replaceState(null,'','cart');
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/sun";
+                    location.href="/sun";
                 }
                 del.onclick=function(){
                     var div2=document.querySelectorAll("div");
@@ -384,8 +384,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    window.location.reload();
-                    window.location.href="/del-sun";
+                    
+                    location.href="/del-sun";
                 }
                 add.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -397,10 +397,10 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/add-sun";
+                    location.href="/add-sun";
                 }
                 min.onclick=function(){
                     var l=document.querySelectorAll("label");
@@ -421,10 +421,10 @@
                             break;
                         }
                     }
-                    window.location.reload();
-                    window.history.replaceState(null,'','cart');
+                    
+                    history.replaceState(null,'','cart');
 
-                    window.location.href="/min-sun";
+                    location.href="/min-sun";
                 }
             }
             add.innerHTML="+";
