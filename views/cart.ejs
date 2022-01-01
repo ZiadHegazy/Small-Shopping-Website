@@ -88,7 +88,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    
+                    history.replaceState(null,'','cart');
+
                     location.href="/del-tennis";
                 }
                 add.onclick=function(){
@@ -101,7 +102,7 @@
                             break;
                         }
                     }
-                    //
+                    
                     history.replaceState(null,'','cart');
 
                     location.href="/add-tennis";
@@ -147,7 +148,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    
+                    history.replaceState(null,'','cart');
+
                     location.href="/del-boxing";
                 }
                 add.onclick=function(){
@@ -206,7 +208,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    
+                    history.replaceState(null,'','cart');
+
                     location.href="/del-galaxy";
                 }
                 add.onclick=function(){
@@ -266,7 +269,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    
+                    history.replaceState(null,'','cart');
+
                     location.href="/del-iphone";
                 }
                 add.onclick=function(){
@@ -325,7 +329,8 @@
                         body.removeChild(div2[k])
                     }
                     }
-                    
+                    history.replaceState(null,'','cart');
+
                     location.href="/del-leaves";
                 }
                 add.onclick=function(){
@@ -379,13 +384,17 @@
                 del.onclick=function(){
                     var div2=document.querySelectorAll("div");
                     var k=0;
+                    var flag=false;
+                    if (div2.length==2)
+                       flag=true;
                     for(k=0;k<div2.length;k++){
                     if(div2[k].id=="sun"){
                         body.removeChild(div2[k])
                     }
                     }
-                    
+                    history.replaceState(null,'','cart');
                     location.href="/del-sun";
+                    
                 }
                 add.onclick=function(){
                     var l=document.querySelectorAll("label");

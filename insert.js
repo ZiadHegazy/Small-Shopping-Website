@@ -12,3 +12,11 @@ var nameSchema=new mongoose.Schema({username:String,password:String});
 var User=mongoose.model("users",nameSchema);
 var schema3=new mongoose.Schema({type:String,name:String,img:String});
 var Item=mongoose.model("items",schema3);
+var quer1=User.deleteMany();
+quer1.exec(function(err,res){
+
+})
+var quer2=Cart.deleteMany();
+quer2.exec(function(err,res){
+  
+})
