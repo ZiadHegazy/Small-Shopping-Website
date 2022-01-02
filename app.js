@@ -55,7 +55,7 @@ app.get("/temp",function(req,res){
 
 app.get("/cart1",function(req,res){
   if(req.session.name){
-    res.render("cart1");
+    res.render("home",{wel:""});
   }else{
     res.render("login",{wrong:"You must login first"});
   }
